@@ -5,6 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <title>ServiGestión -Administración de Usuarios </title>
+      
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+
+    <script>
+
+    $(document).ready(function() {
+        // Arreglo para almacenar los usuarios
+        let usuarios = [
+            { id: 1, nombre: 'Juan Pérez', email: 'juan.perez@example.com', cargo: 'Administrador' },
+            { id: 2, nombre: 'María Gómez', email: 'maria.gomez@example.com', cargo: 'Usuario' },
+        ];
+
+        function cargarUsuarios() {
+        const tablaCuerpo = $('#userTable tbody');
+        tablaCuerpo.empty(); // Limpiar tabla antes de agregar
+
+        usuarios.forEach(usuario => {
+            tablaCuerpo.append(`
+                <tr>
+                    <td>${usuario.id}</td>
+                    <td>${usuario.nombre}</td>
+                    <td>${usuario.email}</td>
+                    <td>${usuario.cargo}</td>
+                    <td>
+                        <button class="editBtn" data-id="${usuario.id}">Editar</button>
+                        <button class="deleteBtn" data-id="${usuario.id}">Eliminar</button>
+                    </td>
+                </tr>
+            `);
+        });
+    }
+
+    // Función para agregar un nuevo usuario
+    function agregarUsuario(nombre, email, cargo) {
+        const nuevoUsuario = {
+            id: usuarios.length + 1,
+            nombre: nombre,
+            email: email,
+            cargo: cargo,
+        };
+        usuarios.push(nuevoUsuario);
+        cargarUsuarios();
+    }
+
+    // Función para editar un usuario
+    function editarUsuario(id, nuevoNombre, nuevoEmail, nuevoCargo) {
+        const usuario = usuarios.find(u => u.id === id);
+        if (usuario) {
+            usuario.nombre = nuevoNombre;
+            usuario.email = nuevoEmail;
+            usuario.cargo = nuevoCargo;
+            cargarUsuarios();
+        }
+    }
+
+    // Función para eliminar un usuario
+    function eliminarUsuario(id) {
+        usuarios = usuarios.filter(usuario => usuario.id !== id);
+        cargarUsuarios();
+    }
+
+    // Evento para agregar usuario
+    $('#addUserBtn').on('click', function() {
+        const nombre = prompt("Ingrese el nombre:");
+        const email = prompt("Ingrese el correo electrónico:");
+        const cargo = prompt("Ingrese el cargo:");
+        if (nombre && email && cargo) {
+            agregarUsuario(nombre, email, cargo);
+        }
+    });
+
+    // Evento para editar usuario
+    $('#userTable').on('click', '.editBtn', function() {
+        const id = $(this).data('id');
+        const usuario = usuarios.find(u => u.id === id);
+        if (usuario) {
+            const nuevoNombre = prompt("Nuevo nombre:", usuario.nombre);
+            const nuevoEmail = prompt("Nuevo correo electrónico:", usuario.email);
+            const nuevoCargo = prompt("Nuevo cargo:", usuario.cargo);
+            if (nuevoNombre && nuevoEmail && nuevoCargo) {
+                editarUsuario(id, nuevoNombre, nuevoEmail, nuevoCargo);
+            }
+        }
+    });
+
+    // Evento para eliminar usuario
+    $('#userTable').on('click', '.deleteBtn', function() {
+        const id = $(this).data('id');
+        if (confirm("¿Estás seguro de que quieres eliminar este usuario?")) {
+            eliminarUsuario(id);
+        }
+    });
+
+    // Cargar los usuarios al inicio
+    cargarUsuarios();
+});
+        </script>
 </head>
 <body>
     <header>
@@ -28,10 +127,48 @@
      <h2>Bienvenido al Panel de Administración</h2>
      <p>Aquí puedes gestionar todas las funcionalidades de la aplicación.</p>
  
-    <main>
-       
+     <main>
+        <section id="userManagement">
+            <h3>Gestión de Usuarios</h3>
+            <button id="addUserBtn">Agregar Usuario</button>
+            
+            <table id="userTable" class="display">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Cargo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Juan Pérez</td>
+                        <td>juan.perez@example.com</td>
+                        <td>Administrador</td>
+                        <td>
+                            <button class="editBtn">Editar</button>
+                            <button class="deleteBtn">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>María Gómez</td>
+                        <td>maria.gomez@example.com</td>
+                        <td>Usuario</td>
+                        <td>
+                            <button class="editBtn">Editar</button>
+                            <button class="deleteBtn">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
     </main>
+
+    
 
     <footer>
         <h3> Redes</h3>

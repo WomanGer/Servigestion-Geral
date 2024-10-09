@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <title>ServiGestión - Servicios</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+
+    <script>
+       $(document).ready(function() {
+    // Evento para mostrar y ocultar la descripción del servicio
+    $(".servicio-titulo").on("click", function() {
+        $(this).next(".servicio-descripcion").slideToggle(); // Muestra u oculta la descripción
+    });
+});
+
+   
+    
+    </script>
+
+
 </head>
 <body>
     <header>
@@ -26,31 +44,31 @@
         </nav>   
      </header>
 
-    <main>
+    
+     <main>
         <h2>Servicios de ServiGestión</h2>
+        <p>Seleccione un servicio para ver más detalles sobre su funcionamiento.</p> <!-- Mensaje de instrucción -->
         <section class="servicios-lista">
             <article class="servicio">
-                <h3>Servicio 1: Gestión de Usuarios</h3>
-                <p>Descripción: Facilita la gestión de usuarios a través de una interfaz amigable. Permite la creación, edición y eliminación de cuentas de usuario.</p>
-                <button onclick="alert('Más información sobre Gestión de Usuarios')">Más Información</button>
+                <h3 class="servicio-titulo">Servicio 1: Gestión de Usuarios</h3>
+                <p class="servicio-descripcion" style="display: none;">Descripción: Facilita la gestión de usuarios a través de una interfaz amigable. Permite la creación, edición y eliminación de cuentas de usuario.</p>
             </article>
             <article class="servicio">
-                <h3>Servicio 2: Reportes y Análisis</h3>
-                <p>Descripción: Genera reportes detallados sobre la actividad de usuarios y servicios, permitiendo un análisis profundo de la información.</p>
-                <button onclick="alert('Más información sobre Reportes y Análisis')">Más Información</button>
+                <h3 class="servicio-titulo">Servicio 2: Reportes y Análisis</h3>
+                <p class="servicio-descripcion" style="display: none;">Descripción: Genera reportes detallados sobre la actividad de usuarios y servicios, permitiendo un análisis profundo de la información.</p>
             </article>
             <article class="servicio">
-                <h3>Servicio 3: Soporte Técnico</h3>
-                <p>Descripción: Ofrece soporte técnico a los usuarios, ayudando a resolver problemas y mejorar la experiencia de uso de la plataforma.</p>
-                <button onclick="alert('Más información sobre Soporte Técnico')">Más Información</button>
+                <h3 class="servicio-titulo">Servicio 3: Soporte Técnico</h3>
+                <p class="servicio-descripcion" style="display: none;">Descripción: Ofrece soporte técnico a los usuarios, ayudando a resolver problemas y mejorar la experiencia de uso de la plataforma.</p>
             </article>
             <article class="servicio">
-                <h3>Servicio 4: Personalización de Servicios</h3>
-                <p>Descripción: Permite a los usuarios personalizar los servicios según sus necesidades específicas, mejorando la adaptabilidad de la plataforma.</p>
-                <button onclick="alert('Más información sobre Personalización de Servicios')">Más Información</button>
+                <h3 class="servicio-titulo">Servicio 4: Personalización de Servicios</h3>
+                <p class="servicio-descripcion" style="display: none;">Descripción: Permite a los usuarios personalizar los servicios según sus necesidades específicas, mejorando la adaptabilidad de la plataforma.</p>
             </article>
         </section>
     </main>
+    
+    
 
     <footer>
         <h3> Redes</h3>
@@ -69,6 +87,8 @@
     <head>
         <link rel="stylesheet" href="style.css">
     </head>
+    
+ 
     
 </body>
 </html>

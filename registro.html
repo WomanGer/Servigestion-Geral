@@ -5,6 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <title>ServiGestión - Registro de Usuario</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+
+    <script>
+        $(document).ready(function() {
+          // Validación de contraseñas
+          $("#registroForm").submit(function(event) {
+            event.preventDefault();
+            
+            var contrasena = $("#contrasena").val();
+            var confirmarContrasena = $("#confirmarContrasena").val();
+            
+            if (contrasena !== confirmarContrasena) {
+              $("<div class='error'>Las contraseñas no coinciden.</div>")
+                .insertBefore("#registroForm")
+                .effect("shake");
+            } else {
+              alert("Registro exitoso.");
+            }
+          });
+  
+          // Tooltips en los campos de entrada
+          $("input").tooltip({
+            position: { my: "left+15 center", at: "right center" }
+          });
+  
+          $("#nombre").attr("title", "Introduce tu nombre completo.");
+          $("#email").attr("title", "Introduce un correo válido, por ejemplo: nombre@correo.com.");
+          $("#contrasena").attr("title", "La contraseña debe tener al menos 8 caracteres.");
+          $("#confirmarContrasena").attr("title", "Vuelve a introducir la contraseña para confirmarla.");
+  
+          // Autocompletado en el campo "Nombre"
+          var nombresComunes = [
+            "Carlos", "Ana", "Luis", "María", "Jorge", "Sofía", "Pedro", "Laura", "Geraldine", "John"
+          ];
+          $("#nombre").autocomplete({
+            source: nombresComunes
+          });
+        });
+      </script>
 </head>
 <body>
     <header>

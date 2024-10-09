@@ -5,12 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <title>Contacto</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+
+    <script>
+    $(document).ready(function() {
+    $("#nombre").tooltip({ content: "Ingresa tu nombre completo." });
+    $("#email").tooltip({ content: "Ingresa un correo electrónico válido." });
+    $("#mensaje").tooltip({ content: "Escribe aquí tu mensaje." });
+});
+    </script>
+
 </head>
 <body>
     <header>
         <section class="logo">
             <img src="Imagenes/Servigestion (1).png" alt="Logo " width="150">
-            
+
         <h1>Contacto</h1>
         <header>
 
