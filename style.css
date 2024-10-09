@@ -142,7 +142,35 @@ footer p {
     padding: 15px 30px;
 }
 
+.texto-bienvenida {
+    text-align: center; /* Centra el texto dentro del contenedor */
+    margin: 20px 0;    /* Agrega margen superior e inferior */
+    font-size: 1.2em;  /* Ajusta el tamaño de fuente si es necesario */
+    color: #333;       /* Cambia el color del texto si es necesario */
+}
+
+
+.banner-container {
+    text-align: center; /* Centra el contenido dentro del contenedor */
+    margin: 20px 0;    /* Agrega margen superior e inferior */
+}
+
+.banner-imagen {
+    max-width: 100%;   /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto;      /* Mantiene la proporción de la imagen */
+    display: inline-block; /* Asegura que la imagen se comporte como un bloque en línea */
+}
+
+
 /* Services Section */
+
+.servicio-imagen {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto;    /* Mantiene la proporción de la imagen */
+    display: block;  /* Asegura que la imagen esté en una nueva línea */
+    margin: 10px auto; /* Centra la imagen y agrega margen superior/inferior */
+}
+
 .services {
     display: flex;
     justify-content: space-around;

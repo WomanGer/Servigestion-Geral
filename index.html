@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
@@ -18,6 +18,12 @@
             
             // Efecto de rebote en la imagen del banner
             $( "img[alt='Banner de ServiGestión']" ).hide().slideDown(1000).effect("bounce", { times: 3 }, 1000);
+        });
+
+        $(function() {
+            $("#accordion").accordion();
+            // Efecto de rebote en la imagen del banner
+            $("img[alt='Banner de ServiGestión']").hide().slideDown(1000).effect("bounce", { times: 3 }, 1000);
         });
     </script>
     
@@ -44,6 +50,8 @@
                 <li><a href="servicios.html">Servicios</a></li>
         </nav>
     </header>
+
+    <div class="texto-bienvenida">
     <p>
          Estamos encantados de tenerte con nosotros.
          <p>
@@ -57,10 +65,13 @@
           </p> Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarnos. 
          ¡Gracias por elegirnos y esperamos que disfrutes de la experiencia!"
       </p>
+    </div>
       
     <main>
         <section class="banner">
-            <img src="Imagenes/computadores.png" alt="Banner de ServiGestión">
+            <div class="banner-container">
+            <img src="Imagenes/computadores.png" alt="Banner de ServiGestión" class="banner-imagen">
+        </div>
             <h2>Bienvenido a ServiGestión Geral</h2>
             <a href="registro.html" class="btn">¡Regístrate Ahora!</a>
         </section>

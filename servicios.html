@@ -11,10 +11,11 @@
     <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
 
     <script>
-       $(document).ready(function() {
+$(document).ready(function() {
     // Evento para mostrar y ocultar la descripción del servicio
     $(".servicio-titulo").on("click", function() {
         $(this).next(".servicio-descripcion").slideToggle(); // Muestra u oculta la descripción
+        $(this).closest(".servicio").find(".servicio-detalle").slideToggle(); // Muestra u oculta detalles
     });
 });
 
@@ -47,26 +48,35 @@
     
      <main>
         <h2>Servicios de ServiGestión</h2>
-        <p>Seleccione un servicio para ver más detalles sobre su funcionamiento.</p> <!-- Mensaje de instrucción -->
+        <p>Seleccione un servicio para ver más detalles sobre su funcionamiento.</p>
         <section class="servicios-lista">
             <article class="servicio">
                 <h3 class="servicio-titulo">Servicio 1: Gestión de Usuarios</h3>
                 <p class="servicio-descripcion" style="display: none;">Descripción: Facilita la gestión de usuarios a través de una interfaz amigable. Permite la creación, edición y eliminación de cuentas de usuario.</p>
+                <p class="servicio-detalle" style="display: none;">Detalles: Este servicio incluye funciones avanzadas para la administración de perfiles, gestión de roles y permisos, y una opción de restablecimiento de contraseñas fácil para los usuarios.</p>
+                <img src="Imagenes/male-1354358_640.png" alt="Gestión de Usuarios" class="servicio-imagen">
             </article>
             <article class="servicio">
                 <h3 class="servicio-titulo">Servicio 2: Reportes y Análisis</h3>
                 <p class="servicio-descripcion" style="display: none;">Descripción: Genera reportes detallados sobre la actividad de usuarios y servicios, permitiendo un análisis profundo de la información.</p>
+                <p class="servicio-detalle" style="display: none;">Detalles: Proporciona gráficos interactivos y estadísticas que ayudan a las empresas a entender mejor su uso de la plataforma y optimizar sus procesos.</p>
+                <img src="Imagenes/interface-3614766_640.png" alt="Reportes y Análisis" class="servicio-imagen">
             </article>
             <article class="servicio">
                 <h3 class="servicio-titulo">Servicio 3: Soporte Técnico</h3>
                 <p class="servicio-descripcion" style="display: none;">Descripción: Ofrece soporte técnico a los usuarios, ayudando a resolver problemas y mejorar la experiencia de uso de la plataforma.</p>
+                <p class="servicio-detalle" style="display: none;">Detalles: Nuestro equipo de soporte está disponible 24/7 para resolver cualquier problema técnico y garantizar la continuidad de las operaciones.</p>
+                <img src="Imagenes/brain-8957506_640.png" alt="Soporte Técnico" class="servicio-imagen">
             </article>
             <article class="servicio">
                 <h3 class="servicio-titulo">Servicio 4: Personalización de Servicios</h3>
                 <p class="servicio-descripcion" style="display: none;">Descripción: Permite a los usuarios personalizar los servicios según sus necesidades específicas, mejorando la adaptabilidad de la plataforma.</p>
+                <p class="servicio-detalle" style="display: none;">Detalles: Ofrecemos opciones de personalización que se adaptan a diferentes tipos de negocios y sectores, asegurando que nuestros servicios sean relevantes para cada cliente.</p>
+                <img src="Imagenes/podcast-7779510_640.png" alt="Personalización de Servicios" class="servicio-imagen">
             </article>
         </section>
     </main>
+    
     
     
 
